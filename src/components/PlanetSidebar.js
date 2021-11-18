@@ -21,13 +21,17 @@ import { Offcanvas } from "react-bootstrap"
 
     return(
         <Offcanvas show={show} onHide={close} placement="end" backdrop={false} scroll={true}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Planet Alpha</Offcanvas.Title>
-          
-      <p>Planet Alpha is the place to be if you like everything related to planets. I know it’s a bit meta, but come see by yourself.</p>
+        <Offcanvas.Header  className="d-flex flex-column align-items-start">
+          <Offcanvas.Title  className="d-flex justify-content-between">
+            <p>Planet Alpha</p>
+        <BsXLg className="close-btn ms-5" onClick={close}/>
 
-                <div>Population</div>
-             <div>234</div>
+        </Offcanvas.Title>
+          
+        <p>Planet Alpha is the place to be if you like everything related to planets. I know it’s a bit meta, but come see by yourself.</p>
+
+        <div>Population</div>
+        <div>234</div>
         </Offcanvas.Header>
         <Offcanvas.Body>
         <div>
@@ -56,7 +60,6 @@ import { Offcanvas } from "react-bootstrap"
 
         // <div id="sidebar">
         //      <div className="sidebar-header">
-        //         <BsXLg className="close-btn"/>
 
         //         <h2>Planet Alpha</h2>
         //         <p>Planet Alpha is the place to be if you like everything related to planets. I know it’s a bit meta, but come see by yourself.</p>
