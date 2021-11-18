@@ -3,22 +3,20 @@ import { useState } from 'react';
 import { Row, Col, Card} from "react-bootstrap";
 import { BsPlusLg} from 'react-icons/bs'
 import PlanetModal from './PlanetModal';
-
+import PlanetSidebar from './PlanetSidebar'
 
 
 const PlanetCards = ({data}) => {
-    // const [ IsOpen, setIsOpen] = useState(false)
 
+    const [showModal, setShowModal] = useState(false);
 
-    // let handleClick = () => {
-    //     setIsOpen(!IsOpen)
-    // }
+    const handleCloseModal = () => setShowModal(false);
+    const handleShowModal = () => setShowModal(true);
 
-    const [show, setShow] = useState(false);
+    const [showSidebar, setShowSidebar] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    const handleCloseSidebar = () => setShowSidebar(false);
+    const handleShowSidebar = () => setShowSidebar(true);
 
     return (
         <div>
@@ -30,7 +28,7 @@ const PlanetCards = ({data}) => {
            <Row xs={1} md={4} className="g-3" id="planet-row">
             {data.map(planet => (
             <Col key={planet.id}>
-                <Card id="planet-cards" >
+                <Card id="planet-cards" onClick={handleShowSidebar}>
                 <Card.Img variant="top" src={planet.image} />
                 <Card.Body>
                     <Card.Title>{planet.name}</Card.Title>
@@ -45,10 +43,14 @@ const PlanetCards = ({data}) => {
 
         </Row>
             
-     <BsPlusLg className="plus-circle" onClick={handleShow} />
+     <BsPlusLg className="plus-circle" onClick={handleShowModal} />
         
             
-     <PlanetModal show={show} close={handleClose}/>      
+     <PlanetModal show={showModal} close={handleCloseModal}/>      
+        
+      <PlanetSidebar  show={showSidebar} close={handleCloseSidebar} />  
+        
+        
         </div> 
     )
 }
