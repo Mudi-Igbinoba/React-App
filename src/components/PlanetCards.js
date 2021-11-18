@@ -15,9 +15,16 @@ const PlanetCards = ({data}) => {
 
     const [showSidebar, setShowSidebar] = useState(false);
 
-    const handleCloseSidebar = () => setShowSidebar(false);
-    const handleShowSidebar = () => setShowSidebar(true);
-
+    const handleCloseSidebar = () =>  {
+        setShowSidebar(false);
+        let cards = document.querySelector('.planet-cards')
+        cards.style.border = "none";
+    }
+    const handleShowSidebar = () => {
+        let cards = document.querySelector('.planet-cards')
+        cards.style.border = "2px solid #121c33";
+        setShowSidebar(true);
+    }
     return (
         <div>
             {/* {IsOpen && <PlanetSidebar />} */}
@@ -28,7 +35,7 @@ const PlanetCards = ({data}) => {
            <Row xs={1} lg={3} md={2} xl={4} className="g-3" id="planet-row">
             {data.map(planet => (
             <Col key={planet.id}>
-                <Card id="planet-cards" onClick={handleShowSidebar}>
+                <Card id="planet-cards" className="planet-cards" onClick={handleShowSidebar}>
                 <Card.Img variant="top" src={planet.image} />
                 <Card.Body>
                     <Card.Title>{planet.name}</Card.Title>

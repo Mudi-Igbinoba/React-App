@@ -38,6 +38,10 @@ a.navbar-brand {
 
 }
 
+#planet-cards::selection{
+  border: 2px solid #121c33;
+}
+
 #planet-cards, #character-cards {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
