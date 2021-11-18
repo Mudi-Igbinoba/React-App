@@ -25,7 +25,7 @@ const PlanetCards = ({data}) => {
 
 
 
-           <Row xs={1} md={4} className="g-3" id="planet-row">
+           <Row xs={1} lg={3} md={2} xl={4} className="g-3" id="planet-row">
             {data.map(planet => (
             <Col key={planet.id}>
                 <Card id="planet-cards" onClick={handleShowSidebar}>
