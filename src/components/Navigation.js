@@ -1,6 +1,6 @@
 import React from 'react'
 import { Nav, Navbar, Form } from 'react-bootstrap'
-
+import {Link} from "react-router-dom"
 
 const Navigation = (props) => {
   
@@ -13,7 +13,7 @@ const Navigation = (props) => {
                 <Nav.Link href="/" active={props.true}>PLANETS</Nav.Link>
             </Nav.Item>
             <Nav.Item className="characters" >
-                <Nav.Link  href="/characters" active={props.false}>CHARACTERS</Nav.Link>
+                <Nav.Link as={Link}  to="/characters" active={props.false}>CHARACTERS</Nav.Link>
             </Nav.Item>
         </Nav>
         </Navbar>
