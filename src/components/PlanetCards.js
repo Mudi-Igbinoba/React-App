@@ -19,11 +19,24 @@ const PlanetCards = ({data}) => {
         setShowSidebar(false);
         let cards = document.querySelector('.planet-cards')
         cards.style.border = "none";
+
+        let planetRow = document.querySelector('#planet-row')
+        planetRow.style.marginRight = "0px";
+        planetRow.classList.add('row-cols-xl-4')
+        planetRow.classList.add('row-cols-lg-3')
+        planetRow.classList.add('row-cols-md-2')
     }
     const handleShowSidebar = () => {
         let cards = document.querySelector('.planet-cards')
         cards.style.border = "2px solid #121c33";
         setShowSidebar(true);
+
+        let planetRow = document.querySelector('#planet-row')
+        planetRow.style.marginRight = "300px";
+        planetRow.classList.remove('row-cols-xl-4')
+        planetRow.classList.remove('row-cols-lg-3')
+        planetRow.classList.remove('row-cols-md-2')
+        planetRow.classList.add('row-cols-xl-3')
     }
     return (
         <div>
@@ -45,7 +58,7 @@ const PlanetCards = ({data}) => {
                 </Card.Body>
                 </Card>
             </Col>
-            ))}  
+            ))}
 
 
         </Row>

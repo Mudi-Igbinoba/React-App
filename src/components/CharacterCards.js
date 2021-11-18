@@ -26,18 +26,37 @@ const CharacterCards = () => {
         setShowSidebar(false);
         let cards = document.querySelector('.character-cards')
         cards.style.border = "none";
+
+        let characterRow = document.querySelector('#character-row')
+        characterRow.style.marginRight = "0px";
+        characterRow.classList.add('row-cols-xl-4')
+        characterRow.classList.add('row-cols-lg-3')
+        characterRow.classList.add('row-cols-md-2')
+
+        let dropdownBasic = document.querySelector('#dropdown-basic')
+        dropdownBasic.style.marginRight = "0px";
     }
     const handleShowSidebar = () => {
         let cards = document.querySelector('.character-cards')
         cards.style.border = "2px solid #121c33";
         setShowSidebar(true);
+
+        let characterRow = document.querySelector('#character-row')
+        characterRow.style.marginRight = "300px";
+        characterRow.classList.remove('row-cols-xl-4')
+        characterRow.classList.remove('row-cols-lg-3')
+        characterRow.classList.remove('row-cols-md-2')
+        characterRow.classList.add('row-cols-xl-3')
+
+        let dropdownBasic = document.querySelector('#dropdown-basic')
+        dropdownBasic.style.marginRight = "300px";
     }
 
 
     return (
         <div>
 
-           <Row xs={1} md={2} lg={3} xl={4} className="g-3">
+           <Row xs={1} md={2} lg={3} xl={4} className="g-3" id="character-row">
             {characters.map(character => (
             <Col key={character.id}>
                 <Card id="character-cards" className="h-100 character-cards" onClick={handleShowSidebar}>
