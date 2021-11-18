@@ -2,7 +2,7 @@ import {planets} from './components/DetailsList';
 import PlanetSection from './components/PlanetSection';
 import Navigation from './components/Navigation';
 import useFetch from './components/useFetch';
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import { HashRouter as Router, Route, Switch} from "react-router-dom"
 import CharacterCards from './components/CharacterCards';
 import { Container, Row, Navbar} from 'react-bootstrap';
 import './index.css';
