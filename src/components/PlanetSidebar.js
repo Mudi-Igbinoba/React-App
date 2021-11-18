@@ -20,74 +20,39 @@ import { Offcanvas } from "react-bootstrap"
 
 
     return(
-        <Offcanvas show={show} onHide={close} placement="end" backdrop={false} scroll={true}>
+        <Offcanvas show={show} onHide={close} placement="end" backdrop={false} scroll={true} id="planet-sidebar">
         <Offcanvas.Header  className="d-flex flex-column align-items-start">
+        <BsXLg className="close-btn flex-column align-self-end" onClick={close}/>
           <Offcanvas.Title  className="d-flex justify-content-between">
-            <p>Planet Alpha</p>
-        <BsXLg className="close-btn ms-5" onClick={close}/>
-
+            Planet Alpha
         </Offcanvas.Title>
           
-        <p>Planet Alpha is the place to be if you like everything related to planets. I know it’s a bit meta, but come see by yourself.</p>
+        <p className="sidebar-subtitle">Planet Alpha is the place to be if you like everything related to planets. I know it’s a bit meta, but come see by yourself.</p>
 
-        <div>Population</div>
-        <div>234</div>
+        <div className="sidebar-pop">Population</div>
+        <div className="sidebar-no">234</div>
         </Offcanvas.Header>
         <Offcanvas.Body>
-        <div>
-                   <h5>Characters</h5>
-                   <BsPlusLg className="close-btn"/>
-               </div>
+        <div className="d-flex mb-3 justify-content-between">
+          <h5 className="sidebar-characters align-self-center mt-1">Characters</h5>
+          <BsPlusLg className="close-btn"/>
+        </div>
 
-               <div className="chars">
-                   {planetChars.map((e) => (
-                   <div key={e.id}>
-                       <img src={e.image} alt="" />
-                       <div>
-                           <h6>{e.name}</h6>
-                           <p>23 friends</p>
-                       </div>
-                   </div> 
-                   ))}
+        <div className="chars ">
+            {planetChars.map((e) => (
+            <div key={e.id} className="d-flex mb-3 justify-content-start">
+                <img src={e.image} alt="" />
+                <div className="ms-3 mt-2 align-self-center">
+                    <h6 className="sidebar-name">{e.name}</h6>
+                    <p className="sidebar-friends">23 friends</p>
+                </div>
+            </div> 
+            ))}
 
-               </div>
+        </div>
         </Offcanvas.Body>
       </Offcanvas>
 
-
-
-
-
-        // <div id="sidebar">
-        //      <div className="sidebar-header">
-
-        //         <h2>Planet Alpha</h2>
-        //         <p>Planet Alpha is the place to be if you like everything related to planets. I know it’s a bit meta, but come see by yourself.</p>
-
-        //         <div>Population</div>
-        //         <div>234</div>
-        //      </div>
-
-        //      <div className="sidebar-footer">
-        //         <div>
-        //             <h5>Characters</h5>
-        //             <BsPlusLg className="close-btn"/>
-        //         </div>
-
-        //         <div className="chars">
-        //             {planetChars.map((e) => (
-        //             <div key={e.id}>
-        //                 <img src={e.image} alt="" />
-        //                 <div>
-        //                     <h6>{e.name}</h6>
-        //                     <p>23 friends</p>
-        //                 </div>
-        //             </div> 
-        //             ))}
-
-        //         </div>
-        //     </div> 
-        // </div>
     )
  };
 
