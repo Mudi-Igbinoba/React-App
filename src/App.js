@@ -21,7 +21,7 @@ function App() {
         </Navbar>
         <Router>
         <div class="home">
-        <Switch>
+        {/* <Switch> */}
           <Route exact path="/">
            { cards && <Navigation true={true} false={false} display="d-none"/>}
             <PlanetSection />
@@ -31,7 +31,7 @@ function App() {
 
             <CharacterCards />
           </Route>
-        </Switch>
+        {/* </Switch> */}
         </div>
         
       </Router> 
