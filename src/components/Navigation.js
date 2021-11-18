@@ -10,7 +10,7 @@ const Navigation = (props) => {
         <Navbar>
         <Nav variant="pills"  className="pb-3" id="tabs">
             <Nav.Item className="planets">
-                <Nav.Link href="/" active={props.true}>PLANETS</Nav.Link>
+                <Nav.Link as={Link} to="/" active={props.true}>PLANETS</Nav.Link>
             </Nav.Item>
             <Nav.Item className="characters" >
                 <Nav.Link as={Link}  to="/characters" active={props.false}>CHARACTERS</Nav.Link>
