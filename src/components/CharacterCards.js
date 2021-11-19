@@ -4,16 +4,10 @@ import { BsPlusLg} from 'react-icons/bs'
 import {characters} from "./DetailsList"
 import CharacterModal from './CharacterModal';
 import CharacterSidebar from './CharacterSidebar';
+import { character } from '../strapi-assets/characters/character-img';
 
 const CharacterCards = () => {
-    // const [ IsOpen, setIsOpen] = useState(false)
-
-
-    // let handleClick = () => {
-    //     setIsOpen(!IsOpen)
-    // }
-
-    const [show, setShow] = useState(false);
+    const [info, setInfo] = useState("");
 
     const [showModal, setShowModal] = useState(false);
 
@@ -36,9 +30,10 @@ const CharacterCards = () => {
         let dropdownBasic = document.querySelector('#dropdown-basic')
         dropdownBasic.style.marginRight = "0px";
     }
-    const handleShowSidebar = () => {
+    const handleShowSidebar = (e) => {
         let cards = document.querySelector('.character-cards')
         cards.style.border = "2px solid #121c33";
+        
         setShowSidebar(true);
 
         let characterRow = document.querySelector('#character-row')
@@ -50,20 +45,23 @@ const CharacterCards = () => {
 
         let dropdownBasic = document.querySelector('#dropdown-basic')
         dropdownBasic.style.marginRight = "300px";
-    }
 
+       setInfo(e)
+    }
+   
 
     return (
         <div>
 
            <Row xs={1} md={2} lg={3} xl={4} className="g-3" id="character-row">
             {characters.map(character => (
-            <Col key={character.id}>
-                <Card id="character-cards" className="h-100 character-cards" onClick={handleShowSidebar}>
+            <Col  id="character-col">
+                <Card key={character.id} id="character-cards" className="h-100 character-cards" onClick={() => handleShowSidebar(character)}>
+                <Card.Body id="character-body">
                 <Card.Img variant="top" src={character.image} />
-                <Card.Body>
-                    <Card.Title>{character.name}</Card.Title>
-                    <Card.Text>
+
+                    <Card.Title className="ms-3" id="character-name">{character.name}</Card.Title>
+                    <Card.Text className="ms-3">
                     {character.friends} friends
                     </Card.Text>
                 </Card.Body>
@@ -79,7 +77,7 @@ const CharacterCards = () => {
             
         <CharacterModal show={showModal} close={handleCloseModal}/>      
            
-         <CharacterSidebar  show={showSidebar} close={handleCloseSidebar} />  
+         <CharacterSidebar  show={showSidebar} close={handleCloseSidebar} title={info.name} desc={info.desc} />  
         </div> 
     )
 }

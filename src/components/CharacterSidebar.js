@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Offcanvas } from "react-bootstrap"
 
 
- function CharacterSidebar( {show, close}) {
+ function CharacterSidebar( {show, close, title, desc}) {
 
     const [planetChars, setPlanetChars] = useState([
         { image: characterImages.character9, name: 'Eleanor Pena', id: 1 },
@@ -23,11 +23,11 @@ import { Offcanvas } from "react-bootstrap"
         <Offcanvas show={show} onHide={close} placement="end" backdrop={false} scroll={true} id="planet-sidebar">
         <Offcanvas.Header  className="d-flex flex-column align-items-start">
         <BsXLg className="close-btn flex-column align-self-end" onClick={close}/>
-          <Offcanvas.Title  className="d-flex justify-content-between">
-            Jane Cooper
+          <Offcanvas.Title id="sidebar-title"  className="d-flex justify-content-between">
+            {title}
         </Offcanvas.Title>
           
-        <p className="sidebar-subtitle">Jane is really a nice person. She’s been living on planet Alpha for the last 10 years.</p>
+        <p className="sidebar-subtitle">{desc}</p>
 
         <div className="d-flex flex-row w-100">
             <div>
